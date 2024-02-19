@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.cupertino,
           transitionDuration: const Duration(milliseconds: 500),
-          title: 'Rent Management',
+          title: 'flutter base',
           theme: theme,
           initialBinding: BaseBinding(
             apiService: apiService,
