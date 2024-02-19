@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/app/core/utils/int_extensions.dart';
+import 'package:gas_cylinder/app/core/utils/int_extensions.dart';
 
 import 'package:get/get.dart';
 
