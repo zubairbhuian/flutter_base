@@ -1,16 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_base/app/services/controller/config_controller.dart';
+import 'package:flutter_base/config/dark_theme.dart';
+import 'package:flutter_base/config/light_theme.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'app/core/config/color.dart';
-import 'app/core/config/theme/theme.dart';
-import 'app/core/services/base/api_service.dart';
-import 'app/core/services/base/dio_interceptor.dart';
-import 'app/core/services/base/preferences.dart';
-import 'app/core/services/bindings/base_binding.dart';
+import 'app/services/base/api_service.dart';
+import 'app/services/base/dio_interceptor.dart';
+import 'app/services/base/preferences.dart';
+import 'app/services/bindings/base_binding.dart';
 import 'app/routes/app_pages.dart';
 
 Future<void> main() async {
@@ -24,10 +25,10 @@ Future<void> main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // Status Bar Color
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: kPrimaryColor,
-    statusBarIconBrightness: Brightness.light,
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //   statusBarColor: kPrimaryColor,
+  //   statusBarIconBrightness: Brightness.light,
+  // ));
 
   /// Shared Preferences
   await Preferences.init();
@@ -39,35 +40,35 @@ Future<void> main() async {
   dio.interceptors.add(DioInterceptor());
 
   /// Add the dio instance to the api service
-  final apiService = ApiService(dio: dio);
+  // final apiService = ApiService(dio: dio);
+  // Get.put(ConfigController());
 
   /// Add the dio instance to the bindings
-  runApp(MyApp(apiService: apiService));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final ApiService apiService;
-  const MyApp({super.key, required this.apiService});
+  const MyApp({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430, 932),
-      builder: (context,child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          defaultTransition: Transition.cupertino,
-          transitionDuration: const Duration(milliseconds: 500),
-          title: 'flutter base',
-          theme: theme,
-          initialBinding: BaseBinding(
-            apiService: apiService,
-          ),
-          initialRoute: AppPages.INITIAL,
-          // initialRoute: Routes.SIGN_IN,
-          getPages: AppPages.routes,
-        );
-      }
-    );
+        designSize: const Size(430, 932),
+        builder: (context, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            defaultTransition: Transition.cupertino,
+            transitionDuration: const Duration(milliseconds: 500),
+            title: 'flutter base',
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            initialBinding: BaseBinding(
+              
+            ),
+            initialRoute: AppPages.INITIAL,
+            // initialRoute: Routes.SIGN_IN,
+            getPages: AppPages.routes,
+          );
+        });
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-import '../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 import '../services/base/preferences.dart';
 
 class RouteWlcomMiddleware extends GetMiddleware {

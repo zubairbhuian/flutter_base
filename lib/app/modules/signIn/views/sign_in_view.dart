@@ -10,7 +10,7 @@ class SignInView extends GetView<SignInController> {
   const SignInView({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
           padding: EdgeInsetsDirectional.symmetric(
               horizontal: 20, vertical: 30),

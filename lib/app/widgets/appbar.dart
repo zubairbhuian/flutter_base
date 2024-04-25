@@ -1,10 +1,8 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 
-import '../core/utils/int_extensions.dart';
-import '../core/config/color.dart';
-import '../core/config/style.dart';
-import '../core/utils/icons.dart';
+import '../utils/int_extensions.dart';
+import '../utils/icons.dart';
 import 'popup_dialogs.dart';
 
 
@@ -37,12 +35,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
             color: const Color(
                 0xffF2F8FD), // Adjust the background color of the AppBar
-            boxShadow: isShadow ? [kAppbarShadow] : []),
+            // boxShadow: isShadow ? [kAppbarShadow] : []
+            
+            ),
         child: AppBar(
           automaticallyImplyLeading: false,
           titleSpacing: 0,
@@ -50,13 +51,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           centerTitle: centerTitle,
           leadingWidth: 80,
           backgroundColor: const Color(0xffF2F8FD),
-          foregroundColor: kTextColor,
-          titleTextStyle: kTitleLarge.copyWith(color: const Color(0xff2F2F2F)),
+          // foregroundColor: kTextColor,
+          // titleTextStyle: kTitleLarge.copyWith(color: const Color(0xff2F2F2F)),
           // appbar leading
           leading: Center(
             child: CircleAvatar(
               radius: 24,
-              backgroundColor: kWhite,
+              // backgroundColor: kWhite,
               child: SvgPicture.asset(IconsPath.userFilled),
             ),
           ),
@@ -66,11 +67,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           actions: [
             GestureDetector(
               onTap: () {
-                PopupDialog.logOutDialog();
+                // PopupDialog.logOutDialog();
               },
               child: CircleAvatar(
                 radius: 24,
-                backgroundColor: kWhite,
+                // backgroundColor: kWhite,
                 child: SvgPicture.asset(IconsPath.logout),
               ),
             ),

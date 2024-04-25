@@ -9,6 +9,7 @@ class Preferences {
   static const String KEY_TOKEN = 'token';
   static const String IS_USER_SIGNIN = 'is_user_signin';
   static const String KEY_IS_ACTIVER_EXPERT = 'is_active_Expert';
+  static const String KEY_IS_LIGHT = 'is_light';
 
   ///  ====== init pref ============
   static Future<void> init() async {
@@ -25,8 +26,12 @@ class Preferences {
  /// token
   static String get token => preferences.getString(KEY_TOKEN) ?? '';
   static set token(String value) => preferences.setString(KEY_TOKEN, value);
+ /// is light theme
+  static bool get isLight => preferences.getBool(KEY_TOKEN) ?? true;
+  static set isLight(bool value) => preferences.setBool(KEY_TOKEN, value);
+  
 
-
+  // ***** Clear the SharedPreferences *****
   static void clear() {
     preferences.clear();
   }

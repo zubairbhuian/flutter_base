@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import '../core/config/color.dart';
 
 class AppIndecator extends StatelessWidget {
   final double? value;
@@ -8,8 +7,9 @@ class AppIndecator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const SpinKitFadingCircle(
-      color: kPrimaryColor,
+    ThemeData theme = Theme.of(context);
+    return   SpinKitFadingCircle(
+      color: theme.primaryColor,
       size: 45.0,
     );
   }

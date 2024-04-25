@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../core/config/color.dart';
-import '../core/config/style.dart';
-
 class CustomDropdownButton extends StatelessWidget {
   final List data;
   final String? value; 
@@ -11,22 +8,23 @@ class CustomDropdownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return DropdownButton<String>(
       value: value,
       iconSize:20,
       elevation: 16,
       isDense: true,
-      dropdownColor: kWhite,
+      dropdownColor: Colors.red,
       underline: const SizedBox(),
       onChanged: onChanged,
-      style: kBodySmall,
+      style: theme.textTheme.bodyMedium,
       items: List.generate(
           data.length,
           (index) => DropdownMenuItem<String>(
                 value: data[index],
                 child: Text(
                   data[index],
-                  style: kBodySmall,
+                  style: theme.textTheme.bodySmall,
                 ),
               )),
     );
