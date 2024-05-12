@@ -18,11 +18,6 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.ENTRY_POINT,
-      page: () => const EntryPointView(),
-      binding: EntryPointBinding(),
-    ),
-    GetPage(
       name: _Paths.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
@@ -31,6 +26,11 @@ class AppPages {
       name: _Paths.AUTH,
       page: () => const AuthView(),
       binding: AuthBinding(),
+    ),
+    GetPage(
+      name: _Paths.ENTRY_POINT,
+      page: () => const EntryPointView(),
+      binding: EntryPointBinding(),
     ),
   ];
 }

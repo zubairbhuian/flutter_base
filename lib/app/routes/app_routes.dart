@@ -5,14 +5,14 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const ENTRY_POINT = _Paths.ENTRY_POINT;
   static const SPLASH = _Paths.SPLASH;
   static const AUTH = _Paths.AUTH;
+  static const ENTRY_POINT = _Paths.ENTRY_POINT;
 }
 
 abstract class _Paths {
   _Paths._();
   static const SPLASH = '/splash';
-  static const ENTRY_POINT = '/entry-point';
   static const AUTH = '/auth';
+  static const ENTRY_POINT = '/entry-point';
 }
