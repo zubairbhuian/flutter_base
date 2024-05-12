@@ -1,117 +1,123 @@
-// // ignore_for_file: public_member_api_docs, sort_constructors_first
-// import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/material.dart';
 
+class PrimaryBtn extends StatelessWidget {
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+  final Widget child;
+  final Function()? onPressed;
+  final double? borderRadius;
+  final double? height;
+  final double? width;
+  final double? elevation;
+  final TextStyle? style;
+  final EdgeInsetsGeometry? padding;
+  final BorderSide? side;
 
+  const PrimaryBtn({
+    super.key,
+    this.backgroundColor,
+    this.foregroundColor,
+    required this.onPressed,
+    this.borderRadius,
+    this.style,
+    this.height,
+    this.width,
+    this.elevation,
+    this.padding,
+    required this.child,
+    this.side,
+  });
 
-// class PrimaryBtn extends StatelessWidget {
-//   final Color? color;
-//   final Color? textColor;
-//   final Widget child;
-//   final Function()? onPressed;
-//   final double? borderRadius;
-//   final double? height;
-//   final double? width;
-//   final double? elevation;
-//   final TextStyle? style;
-//   final EdgeInsetsGeometry? padding;
-//   final BorderSide? side;
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+          elevation: elevation ?? 0,
+          textStyle: style ??
+              theme.textTheme.labelLarge
+                  ?.copyWith(color: foregroundColor ?? Colors.white),
+          disabledBackgroundColor: theme.primaryColor.withOpacity(.2),
+          disabledForegroundColor: Colors.white,
+          backgroundColor: backgroundColor ?? theme.primaryColor,
+          foregroundColor: foregroundColor ?? Colors.white,
+          splashFactory: NoSplash.splashFactory,
+          padding: padding ??
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 12.sp),
+          ),
+          // ****** Border color *******
+          side: side
+          //  BorderSide(
+          //   color: theme.disabledColor,
+          //   width: 2,
+          // ),
+          ),
+      child: child,
+    );
+  }
+}
 
-//   const PrimaryBtn({
-//     Key? key,
-//     this.color,
-//     this.textColor,
-//     required this.onPressed,
-//     this.borderRadius,
-//     this.style,
-//     this.height,
-//     this.width,
-//     this.elevation,
-//     this.padding,
-//     required this.child, this.side,
-//   }) : super(key: key);
+class OutLineBtn extends StatelessWidget {
+  final Color? backgroundColor;
+  final Color? borderColor;
+  final Widget child;
+  final Color? foregroundColor;
+  final VoidCallback? onPressed;
+  final double? borderRadius;
+  final EdgeInsetsGeometry? padding;
+  final double? height;
+  final double? width;
+  final TextStyle? textStyle;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: width,
-//       height: height,
-//       decoration: BoxDecoration(boxShadow: [kbtnShadow]),
-//       child: ElevatedButton(
-//         onPressed: onPressed,
-//         style: ElevatedButton.styleFrom(
-//           elevation: elevation ?? 1,
-//           textStyle: style ?? kLabelLarge.copyWith(color: textColor ?? kWhite),
-//           disabledBackgroundColor: kDisabledColor,
-//           disabledForegroundColor: kDisabledTextColor,
-//           backgroundColor: color ?? kPrimaryColor,
-//           foregroundColor: textColor ?? kWhite,
-//           padding:
-//               padding ?? const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-//           shape: RoundedRectangleBorder(
-//             borderRadius: BorderRadius.circular(borderRadius ?? 8),
-//           ),
-//           // ****** Border color *******
-//           side:side
-//           // const BorderSide(
-//           //   color: kPrimaryColor,
-//           //   width: 0,
-//           // ),
-//         ),
-//         child: child,
-//       ),
-//     );
-//   }
-// }
+  const OutLineBtn(
+      {super.key,
+      this.backgroundColor,
+      this.borderColor,
+      this.foregroundColor,
+      this.onPressed,
+      this.borderRadius,
+      this.padding,
+      this.height,
+      this.width,
+      this.textStyle,
+      required this.child});
 
-// class OutLineBtn extends StatelessWidget {
-//   final Color? backgroundColor;
-//   final Widget child;
-//   final Color? foregroundColor;
-//   final VoidCallback? onPressed;
-//   final double? borderRadius;
-//   final EdgeInsetsGeometry? padding;
-//   final double? height;
-//   final double? width;
-//   final TextStyle? textStyle;
-
-//   const OutLineBtn(
-//       {super.key,
-//       this.backgroundColor,
-//       this.foregroundColor,
-//       this.onPressed,
-//       this.borderRadius,
-//       this.padding,
-//       this.height,
-//       this.width,
-//       this.textStyle,
-//       required this.child});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     ThemeData theme = Theme.of(context);
-//     return SizedBox(
-//       width: width,
-//       height: height,
-//       child: OutlinedButton(
-//           style: OutlinedButton.styleFrom(
-//             padding: padding ??
-//                 const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-//             foregroundColor: theme.primaryColor,
-//             side:  BorderSide(width: 1, color: theme.dividerColor),
-//             backgroundColor: backgroundColor ?? Colors.transparent,
-//             disabledForegroundColor: Colors.white,
-//             disabledBackgroundColor: theme.disabledColor,
-//             textStyle: textStyle,
-//             // shape: RoundedRectangleBorder(
-//             //   borderRadius: BorderRadius.circular(
-//             //       borderRadius ?? 16.r), // Change the border radius value
-//             // ),
-//           ),
-//           onPressed: onPressed,
-//           child: child),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return SizedBox(
+      width: width,
+      height: height,
+      child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            padding: padding ??
+                const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+            foregroundColor:foregroundColor?? theme.primaryColor,
+            side: BorderSide(
+                width: 1,
+                color: borderColor ??
+                    (onPressed == null
+                        ? theme.disabledColor
+                        : theme.primaryColor)),
+            backgroundColor: backgroundColor ?? Colors.transparent,
+            
+            disabledForegroundColor: theme.disabledColor,
+            disabledBackgroundColor: theme.disabledColor.withOpacity(.5),
+            textStyle: textStyle,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                  borderRadius ?? 16.r), // Change the border radius value
+            ),
+          ),
+          onPressed: onPressed,
+          child: child),
+    );
+  }
+}
 
 // class GradientBtn extends StatelessWidget {
 //   const GradientBtn({

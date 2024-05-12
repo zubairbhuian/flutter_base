@@ -1,11 +1,10 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
-// import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:iconly/iconly.dart';
+import 'package:iconsax/iconsax.dart';
 
-
-// import '../utils/int_extensions.dart';
-// import '../core/config/color.dart';
-// import '../core/config/style.dart';
+import '../utils/int_extensions.dart';
 
 // class CustomTextField extends StatefulWidget {
 //   final TextEditingController? controller;
@@ -237,237 +236,585 @@
 //       );
 // }
 
-// class CustomTextField2 extends StatelessWidget {
-//   final TextEditingController? controller;
-//   final bool? obscureText;
-//   final bool? readOnly;
-//   final Widget? suffixIcon;
-//   final Widget? suffixIconColor;
-//   final Widget? prefixIcon;
-//   final String? hintText;
-//   final Widget? label;
-//   final String? extraLabel;
-//   final TextStyle? labelStyle;
-//   final TextStyle? extraLabelStyle;
-//   final TextStyle? errorStyle;
-//   final VoidCallback? onTap;
-//   final AutovalidateMode? autovalidateMode;
-//   final TextInputType? keyboardType;
-//   final String? Function(String?)? validator;
-//   final Function(String)? onChange;
-//   final EdgeInsetsGeometry? padding;
-//   final Color? cursorColor;
-//   final TextAlign? textAlign;
-//   final double? fontSize;
-//   final List<TextInputFormatter>? inputFormatters;
-//   final bool? autofocus;
+class CustomTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final bool? obscureText;
+  final bool? readOnly;
+  final Widget? suffixIcon;
+  final Widget? suffixIconColor;
+  final Widget? prefixIcon;
+  final String? hintText;
+  final Widget? label;
+  final String? extraLabel;
+  final TextStyle? labelStyle;
+  final TextStyle? extraLabelStyle;
+  final TextStyle? errorStyle;
+  final VoidCallback? onTap;
+  final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final Function(String)? onChange;
+  final EdgeInsetsGeometry? padding;
+  final Color? cursorColor;
+  final TextAlign? textAlign;
+  final double? fontSize;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool? autofocus;
 
-//   final TextStyle? style;
-//   final String? errorText;
-//   final VoidCallback? onEditingComplete;
-//   final int? maxLines;
-//   final double? marginBottom;
+  final TextStyle? style;
+  final String? errorText;
+  final VoidCallback? onEditingComplete;
+  final int? maxLines;
+  final double? marginBottom;
 
-//   const CustomTextField2(
-//       {super.key,
-//       this.controller,
-//       this.obscureText,
-//       this.readOnly,
-//       this.suffixIcon,
-//       this.prefixIcon,
-//       this.hintText,
-//       this.label,
-//       this.onTap,
-//       this.autovalidateMode,
-//       this.keyboardType,
-//       this.validator,
-//       this.onChange,
-//       this.padding,
-//       this.cursorColor,
-//       this.inputFormatters,
-//       this.autofocus,
-//       this.textAlign,
-//       this.fontSize,
-//       this.style,
-//       this.errorText,
-//       this.onEditingComplete,
-//       this.maxLines,
-//       this.suffixIconColor,
-//       this.extraLabel,
-//       this.extraLabelStyle,
-//       this.labelStyle,
-//       this.errorStyle,
-//       this.marginBottom});
+  const CustomTextField(
+      {super.key,
+      this.controller,
+      this.obscureText,
+      this.readOnly,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.hintText,
+      this.label,
+      this.onTap,
+      this.autovalidateMode,
+      this.keyboardType,
+      this.validator,
+      this.onChange,
+      this.padding,
+      this.cursorColor,
+      this.inputFormatters,
+      this.autofocus,
+      this.textAlign,
+      this.fontSize,
+      this.style,
+      this.errorText,
+      this.onEditingComplete,
+      this.maxLines,
+      this.suffixIconColor,
+      this.extraLabel,
+      this.extraLabelStyle,
+      this.labelStyle,
+      this.errorStyle,
+      this.marginBottom});
 
-//   @override
-//   Widget build(BuildContext context) => Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           // ********** extraLabel ********
-//           if (extraLabel != null)
-//             Text(
-//               extraLabel ?? "",
-//               style: extraLabelStyle ?? kBodyLarge,
-//             ),
-//           if (extraLabel != null)
-//             const SizedBox(
-//               height: 10,
-//             ),
-//           TextFormField(
-//             // ********** controller ********
-//             controller: controller,
-//             // ********** validator ********
-//             validator: validator,
-//             // ********** onChanged ********
-//             onChanged: onChange,
-//             // ********** obscureText ********
-//             obscureText: obscureText ?? false,
-//             // ********** readOnly ********
-//             readOnly: readOnly ?? false,
-//             // ********** autovalidateMode ********
-//             autovalidateMode: autovalidateMode,
-//             // ********** cursorColor ********
-//             cursorColor: cursorColor ?? kPrimaryColor,
-//             // ********** maxLines ********
-//             maxLines: maxLines ?? 1,
-//             // ********** autofocus ********
-//             autofocus: autofocus ?? false,
-//             // ********** textAlign ********
-//             textAlign: textAlign ?? TextAlign.start,
-//             // ********** onTap ********
-//             onTap: onTap,
-//             // ********** style ********
-//             style: style ?? kBodyLarge,
-//             // ********** controller ********
-//             onEditingComplete: onEditingComplete,
-//             // ********** keyboardType ********
-//             keyboardType: keyboardType,
-//             //! ********** decoration ********
-//             decoration: InputDecoration(
-//               filled: true,
-//               fillColor: kDisabledColor.withOpacity(.6),
-//               // ********** errorText ********
-//               errorText: errorText,
-//               errorStyle:
-//                   errorStyle ?? kBodyLarge.copyWith(color: kDangerColor),
-//               errorMaxLines: 5,
-//               // ********** padding ********
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // ********** extraLabel ********
+        if (extraLabel != null)
+          Text(
+            extraLabel ?? "",
+            style: extraLabelStyle ?? theme.textTheme.labelSmall,
+          ),
+        if (extraLabel != null)
+          const SizedBox(
+            height: 6,
+          ),
+        TextFormField(
+          // ********** controller ********
+          controller: controller,
+          // ********** validator ********
+          validator: validator,
+          // ********** onChanged ********
+          onChanged: onChange,
+          // ********** obscureText ********
+          obscureText: obscureText ?? false,
+          // ********** readOnly ********
+          readOnly: readOnly ?? false,
+          // ********** autovalidateMode ********
+          autovalidateMode: autovalidateMode,
+          // ********** cursorColor ********
+          cursorColor: cursorColor ?? theme.primaryColor,
+          // ********** maxLines ********
+          maxLines: maxLines ?? 1,
+          // ********** autofocus ********
+          autofocus: autofocus ?? false,
+          // ********** textAlign ********
+          textAlign: textAlign ?? TextAlign.start,
+          // ********** onTap ********
+          onTap: onTap,
+          // ********** style ********
+          style: style ?? theme.textTheme.labelMedium,
+          // ********** controller ********
+          onEditingComplete: onEditingComplete,
+          // ********** keyboardType ********
+          keyboardType: keyboardType,
+          //! ********** decoration ********
+          decoration: InputDecoration(
+            // filled: true,
+            // fillColor: kDisabledColor.withOpacity(.6),
+            // ********** errorText ********
+            errorText: errorText,
+            errorStyle: errorStyle ??
+                theme.textTheme.labelMedium?.copyWith(color: Colors.red),
+            errorMaxLines: 5,
+            // ********** padding ********
 
-//               contentPadding: padding ??
-//                   const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-//               // ********** prefixIcon ********
-//               prefixIcon: prefixIcon,
-//               // ********** suffixIcon ********
-//               suffixIcon: suffixIcon,
-//               // ********** border ********
-//               border: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(12),
-//                   borderSide: const BorderSide(color: kDisabledColor)),
-//               // ********** focusedBorder ********
-//               focusColor: kPrimaryColor,
-//               focusedBorder: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(12),
-//                   borderSide:  BorderSide(color: kPrimaryColor)),
-//               // ********** enabledBorder ********
-//               enabledBorder: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(12),
-//                   borderSide: const BorderSide(color: kDisabledColor)),
-//               // ********** errorBorder ********
-//               errorBorder: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(12),
-//                   borderSide: const BorderSide(color: kDangerColor)),
-//               // ********** hintText ********
-//               hintText: hintText,
-//               hintStyle: kBodyLarge.copyWith(color: kTextColorLight),
-//               // ********** label ********
-//               label: label,
-//               labelStyle: labelStyle ?? kBodyLarge,
-//             ),
-//             // ********** inputFormatters ********
-//             inputFormatters:
-//                 inputFormatters ?? [LengthLimitingTextInputFormatter(40)],
-//           ),
-//           // ********** marginBottom ********
-//           SizedBox(
-//             height: marginBottom ?? 16,
-//           )
-//         ],
-//       );
-// }
+            contentPadding: padding ??
+                const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            // ********** prefixIcon ********
+            prefixIcon: prefixIcon,
+            // ********** suffixIcon ********
+            suffixIcon: suffixIcon,
+            // ********** border ********
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** focusedBorder ********
+            focusColor: theme.primaryColor,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** enabledBorder ********
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** errorBorder ********
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** hintText ********
+            hintText: hintText,
+            hintStyle:
+                theme.textTheme.labelMedium?.copyWith(color: theme.hintColor),
+            // ********** label ********
+            label: label,
+            labelStyle: labelStyle ?? theme.textTheme.labelMedium,
+          ),
+          // ********** inputFormatters ********
+          inputFormatters:
+              inputFormatters ?? [LengthLimitingTextInputFormatter(40)],
+        ),
+        // ********** marginBottom ********
+        SizedBox(
+          height: marginBottom ?? 16,
+        )
+      ],
+    );
+  }
+}
 
-// class CustomDropdownTextFiel extends StatelessWidget {
-//   const CustomDropdownTextFiel({
-//     super.key,
-//     this.label,
-//     required this.data,
-//     required this.onChanged,
-//     this.hint,
-//     this.icon,
-//     this.enabledBorderColor,
-//     this.borderColor,
-//   });
+class CustomSearchTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final bool? obscureText;
+  final bool? readOnly;
+  final Widget? suffixIcon;
+  final Widget? suffixIconColor;
+  final Widget? prefixIcon;
+  final String? hintText;
+  final Widget? label;
+  final String? extraLabel;
+  final TextStyle? labelStyle;
+  final TextStyle? extraLabelStyle;
+  final TextStyle? errorStyle;
+  final VoidCallback? onTap;
+  final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final Function(String)? onChange;
+  final EdgeInsetsGeometry? padding;
+  final Color? cursorColor;
+  final Color? fillColor;
+  final TextAlign? textAlign;
+  final double? fontSize;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool? autofocus;
+  final double? borderRadius;
+  final TextStyle? style;
+  final String? errorText;
+  final VoidCallback? onEditingComplete;
+  final int? maxLines;
+  final double? marginBottom;
 
-//   final String? label;
-//   final List data;
-//   final Widget? hint;
-//   final Widget? icon;
-//   final Function(String?) onChanged;
-//   final Color? enabledBorderColor;
-//   final Color? borderColor;
+  const CustomSearchTextField(
+      {super.key,
+      this.controller,
+      this.obscureText,
+      this.readOnly,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.hintText,
+      this.label,
+      this.onTap,
+      this.autovalidateMode,
+      this.keyboardType,
+      this.validator,
+      this.onChange,
+      this.padding,
+      this.cursorColor,
+      this.inputFormatters,
+      this.autofocus,
+      this.textAlign,
+      this.fontSize,
+      this.style,
+      this.errorText,
+      this.onEditingComplete,
+      this.maxLines,
+      this.suffixIconColor,
+      this.extraLabel,
+      this.extraLabelStyle,
+      this.labelStyle,
+      this.errorStyle,
+      this.marginBottom,
+      this.borderRadius, this.fillColor});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         if (label != null)
-//           Text(
-//             label ?? "",
-//             style: kLabelMedium,
-//           ),
-//         SizedBox(height: label == null ? 0 : 8),
-//         DropdownButtonFormField<String>(
-//           hint: hint ??
-//               Text(
-//                 'Select',
-//                 style: kBodyLarge.copyWith(color: const Color(0xFFC0C0C0)),
-//               ),
-//           icon: icon,
-//           dropdownColor: kWhite,
-//           decoration: InputDecoration(
-//               border: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(8),
-//                   borderSide: const BorderSide(color: kDisabledTextColor)),
-//               focusedBorder: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(8),
-//                   borderSide: const BorderSide(color: kDisabledTextColor)),
-//               enabledBorder: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(8),
-//                   borderSide: const BorderSide(color: kDisabledTextColor)),
-//               contentPadding:
-//                   const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-//               filled: true,
-//               fillColor: kWhite,
-//               hintStyle: const TextStyle(
-//                   color: kTextColor,
-//                   fontSize: 16) // Set the background color here
-//               ),
-//           items: List.generate(
-//               data.length,
-//               (index) => DropdownMenuItem<String>(
-//                     value: data[index],
-//                     child: Text(
-//                       data[index],
-//                       style: kBodyLarge,
-//                     ),
-//                   )),
-//           onChanged: onChanged,
-//         ),
-//         // SizedBox(height: 24.h),
-//       ],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // ********** extraLabel ********
+        if (extraLabel != null)
+          Text(
+            extraLabel ?? "",
+            style: extraLabelStyle ?? theme.textTheme.labelSmall,
+          ),
+        if (extraLabel != null)
+          const SizedBox(
+            height: 6,
+          ),
+        TextFormField(
+          // ********** controller ********
+          controller: controller,
+          // ********** validator ********
+          validator: validator,
+          // ********** onChanged ********
+          onChanged: onChange,
+          // ********** obscureText ********
+          obscureText: obscureText ?? false,
+          // ********** readOnly ********
+          readOnly: readOnly ?? false,
+          // ********** autovalidateMode ********
+          autovalidateMode: autovalidateMode,
+          // ********** cursorColor ********
+          cursorColor: cursorColor ?? theme.primaryColor,
+          // ********** maxLines ********
+          maxLines: maxLines ?? 1,
+          // ********** autofocus ********
+          autofocus: autofocus ?? false,
+          // ********** textAlign ********
+          textAlign: textAlign ?? TextAlign.start,
+          // ********** onTap ********
+          onTap: onTap,
+          // ********** style ********
+          style: style ?? theme.textTheme.labelMedium,
+          // ********** controller ********
+          onEditingComplete: onEditingComplete,
+          // ********** keyboardType ********
+          keyboardType: keyboardType,
+          //! ********** decoration ********
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: fillColor ?? theme.dividerColor.withOpacity(.1),
+            // ********** errorText ********
+            errorText: errorText,
+            errorStyle: errorStyle ??
+                theme.textTheme.labelMedium?.copyWith(color: Colors.red),
+            errorMaxLines: 5,
+            // ********** padding ********
+
+            contentPadding: padding ??
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+            // ********** prefixIcon ********
+            prefixIcon: prefixIcon ??
+                Icon(
+                  IconlyLight.search,
+                  color: theme.hintColor,
+                ),
+            // ********** suffixIcon ********
+            suffixIcon: suffixIcon,
+            // ********** border ********
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 12),
+                borderSide: BorderSide.none),
+            // ********** focusedBorder ********
+            focusColor: theme.primaryColor,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 12),
+                borderSide: BorderSide.none),
+            // ********** enabledBorder ********
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 12),
+                borderSide: BorderSide.none),
+            // ********** errorBorder ********
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 12),
+                borderSide: BorderSide.none),
+            // ********** hintText ********
+            hintText: hintText ?? "Search...",
+            hintStyle:
+                theme.textTheme.labelMedium?.copyWith(color: theme.hintColor),
+            // ********** label ********
+            label: label,
+            labelStyle: labelStyle ?? theme.textTheme.labelLarge,
+          ),
+          // ********** inputFormatters ********
+          inputFormatters:
+              inputFormatters ?? [LengthLimitingTextInputFormatter(40)],
+        ),
+      ],
+    );
+  }
+}
+
+class CustomPassWordTextField extends StatefulWidget {
+  final TextEditingController? controller;
+  final bool? readOnly;
+  final Widget? suffixIcon;
+  final Widget? suffixIconColor;
+  final Widget? prefixIcon;
+  final String? hintText;
+  final Widget? label;
+  final String? extraLabel;
+  final TextStyle? labelStyle;
+  final TextStyle? extraLabelStyle;
+  final TextStyle? errorStyle;
+  final VoidCallback? onTap;
+  final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
+  final Function(String)? onChange;
+  final EdgeInsetsGeometry? padding;
+  final Color? cursorColor;
+  final TextAlign? textAlign;
+  final double? fontSize;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool? autofocus;
+
+  final TextStyle? style;
+  final String? errorText;
+  final VoidCallback? onEditingComplete;
+  final int? maxLines;
+  final double? marginBottom;
+
+  const CustomPassWordTextField(
+      {super.key,
+      this.controller,
+      this.readOnly,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.hintText,
+      this.label,
+      this.onTap,
+      this.autovalidateMode,
+      this.keyboardType,
+      this.validator,
+      this.onChange,
+      this.padding,
+      this.cursorColor,
+      this.inputFormatters,
+      this.autofocus,
+      this.textAlign,
+      this.fontSize,
+      this.style,
+      this.errorText,
+      this.onEditingComplete,
+      this.maxLines,
+      this.suffixIconColor,
+      this.extraLabel,
+      this.extraLabelStyle,
+      this.labelStyle,
+      this.errorStyle,
+      this.marginBottom});
+
+  @override
+  State<CustomPassWordTextField> createState() =>
+      _CustomPassWordTextFieldState();
+}
+
+class _CustomPassWordTextFieldState extends State<CustomPassWordTextField> {
+  bool obscureText = true;
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // ********** extraLabel ********
+        if (widget.extraLabel != null)
+          Text(
+            widget.extraLabel ?? "",
+            style: widget.extraLabelStyle ?? theme.textTheme.labelSmall,
+          ),
+        if (widget.extraLabel != null)
+          const SizedBox(
+            height: 6,
+          ),
+        TextFormField(
+          // ********** controller ********
+          controller: widget.controller,
+          // ********** validator ********
+          validator: widget.validator,
+          // ********** onChanged ********
+          onChanged: widget.onChange,
+          // ********** obscureText ********
+          obscureText: obscureText,
+          // ********** readOnly ********
+          readOnly: widget.readOnly ?? false,
+          // ********** autovalidateMode ********
+          autovalidateMode: widget.autovalidateMode,
+          // ********** cursorColor ********
+          cursorColor: widget.cursorColor ?? theme.primaryColor,
+          // ********** maxLines ********
+          maxLines: widget.maxLines ?? 1,
+          // ********** autofocus ********
+          autofocus: widget.autofocus ?? false,
+          // ********** textAlign ********
+          textAlign: widget.textAlign ?? TextAlign.start,
+          // ********** onTap ********
+          onTap: widget.onTap,
+          // ********** style ********
+          style: widget.style ?? theme.textTheme.labelMedium,
+          // ********** controller ********
+          onEditingComplete: widget.onEditingComplete,
+          // ********** keyboardType ********
+          keyboardType: widget.keyboardType,
+          //! ********** decoration ********
+          decoration: InputDecoration(
+            // filled: true,
+            // fillColor: kDisabledColor.withOpacity(.6),
+            // ********** errorText ********
+            errorText: widget.errorText,
+            errorStyle: widget.errorStyle ??
+                theme.textTheme.labelMedium?.copyWith(color: Colors.red),
+            errorMaxLines: 5,
+            // ********** padding ********
+
+            contentPadding: widget.padding ??
+                const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            // ********** prefixIcon ********
+            prefixIcon: widget.prefixIcon,
+            // ********** suffixIcon ********
+            suffixIcon: InkWell(
+              onTap: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+              splashColor: theme.cardColor,
+              borderRadius: BorderRadius.circular(800),
+              child: obscureText
+                  ? const Icon(Iconsax.eye)
+                  : const Icon(Iconsax.eye_slash),
+            ),
+            // ********** border ********
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** focusedBorder ********
+            focusColor: theme.primaryColor,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** enabledBorder ********
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** errorBorder ********
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: theme.hintColor)),
+            // ********** hintText ********
+            hintText: widget.hintText,
+            hintStyle:
+                theme.textTheme.labelMedium?.copyWith(color: theme.hintColor),
+            // ********** label ********
+            label: widget.label,
+            labelStyle: widget.labelStyle ?? theme.textTheme.labelMedium,
+          ),
+          // ********** inputFormatters ********
+          inputFormatters:
+              widget.inputFormatters ?? [LengthLimitingTextInputFormatter(40)],
+        ),
+        // ********** marginBottom ********
+        SizedBox(
+          height: widget.marginBottom ?? 16,
+        )
+      ],
+    );
+  }
+}
+
+class CustomDropdownTextField extends StatelessWidget {
+  const CustomDropdownTextField({
+    super.key,
+    this.label,
+    required this.data,
+    required this.onChanged,
+    this.hint,
+    this.icon,
+    this.enabledBorderColor,
+    this.borderColor,
+  });
+
+  final String? label;
+  final List data;
+  final Widget? hint;
+  final Widget? icon;
+  final Function(String?) onChanged;
+  final Color? enabledBorderColor;
+  final Color? borderColor;
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (label != null)
+          Text(
+            label ?? "",
+            style: theme.textTheme.labelSmall,
+          ),
+        SizedBox(height: label == null ? 0 : 6),
+        DropdownButtonFormField<String>(
+          hint: hint ??
+              Text(
+                'Select',
+                style: theme.textTheme.labelMedium
+                    ?.copyWith(color: theme.hintColor),
+              ),
+          icon: icon,
+          dropdownColor: Colors.white,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: theme.hintColor)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: theme.hintColor)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: theme.hintColor)),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 13, horizontal: 20),
+              filled: true,
+              fillColor: Colors.white,
+              hintStyle: theme.textTheme.labelMedium?.copyWith(
+                  color: theme.hintColor) // Set the background color here
+              ),
+          items: List.generate(
+              data.length,
+              (index) => DropdownMenuItem<String>(
+                    value: data[index],
+                    child: Text(
+                      data[index],
+                      style: theme.textTheme.labelMedium,
+                    ),
+                  )),
+          onChanged: onChanged,
+        ),
+        const SizedBox(height: 16),
+      ],
+    );
+  }
+}
 
 // class CustomTextWithLabel extends StatelessWidget {
 //   final String text;

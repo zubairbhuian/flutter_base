@@ -2,71 +2,72 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base/app/utils/my_func.dart';
 import 'package:flutter_base/config/fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 ThemeData lightTheme = ThemeData(
     // ***** Color *****
-    primaryColor: Color(0xff),
-    primaryColorDark: Color(0xff),
-    primaryColorLight: Color(0xff),
-    canvasColor: Color(0xff),
-    cardColor: Color(0xff),
-    disabledColor: Color(0xff),
-    dividerColor: Color(0xff),
-    dialogBackgroundColor: Color(0xff),
-    colorSchemeSeed: Color(0xff),
-    hintColor: Color(0xff),
-    focusColor: Color(0xff),
-    highlightColor: Color(0xff),
-    indicatorColor: Color(0xff),
-    shadowColor: Color(0xff),
-    splashColor: Color(0xff),
-    scaffoldBackgroundColor: Color(0xff),
-    secondaryHeaderColor: Color(0xff),
-    hoverColor: Color(0xff),
-    unselectedWidgetColor: Color(0xff),
+    primaryColor: const Color(0xffFF7A59),
+    primaryColorDark: const Color(0xff0C1C2C),
+    primaryColorLight: const Color(0xff0C93AB),
+    canvasColor: const Color(0x000000ff),
+    cardColor: const Color(0xffF9FAFD),
+    disabledColor: const Color(0xffC4CACF),
+    dividerColor: const Color(0xff5B636B),
+    dialogBackgroundColor: const Color(0xffF9FAFD),
+    hintColor: const Color(0xffA0A3A9),
+    focusColor: const Color(0x000000ff),
+    highlightColor: const Color(0x000000ff),
+    indicatorColor: const Color(0x000000ff),
+    shadowColor: const Color(0x000000ff),
+    splashColor: const Color.fromARGB(119, 12, 147, 171),
+    scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
+    secondaryHeaderColor: null,
+    hoverColor: const Color(0x000000ff),
+    unselectedWidgetColor: const Color(0xffEEEEEE),
 
     // *****  Others Color *****
-    primarySwatch: MyFunc.createMaterialColor(const Color(0xff8A0051)),
-    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.grey)
-        .copyWith(background: const Color(0xffFFFFFF)),
+    // primarySwatch: MyFunc.createMaterialColor(const Color(0xff8A0051)),
+    // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.grey)
+    //     .copyWith(background: const Color(0xffFFFFFF)),
 
     // *****  brightness *****
     brightness: Brightness.light,
     // ****** Font Family ******
     fontFamily: Fonts.primary,
     // ****** Card Theme ******
-    cardTheme: const CardTheme(
-        color: Colors.amberAccent,
-        shadowColor: null,
+    cardTheme: CardTheme(
+        color: const Color(0xffF9FAFD),
+        shadowColor: Colors.black,
         surfaceTintColor: null,
         margin: null,
-        shape: null,
-        elevation: null),
+        shape: RoundedRectangleBorder(
+          borderRadius:
+              BorderRadius.circular(12.r), // Adjust the radius as needed
+        ),
+        elevation: 1),
     // ****** Text Theme ******
     textTheme: TextTheme(
       //******  Label  ******
       labelLarge: TextStyle(
           fontFamily: Fonts.primary,
-          fontSize: 14.sp,
+          fontSize: 16.sp,
           fontWeight: FontWeight.w500,
-          color: Colors.green),
+          color: const Color(0xff010101)),
       labelMedium: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 14.sp,
           fontWeight: FontWeight.w500,
-          color: Colors.green),
+          color: const Color(0xff010101)),
       labelSmall: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 12.sp,
           fontWeight: FontWeight.w500,
-          color: Colors.green),
+          color: const Color(0xff010101)),
 
       //******  Body  ******
       bodyLarge: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 16.sp,
           fontWeight: FontWeight.w400,
-          color: Colors.green),
+          color: const Color(0xff666666)),
       bodyMedium: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 14.sp,
@@ -75,53 +76,53 @@ ThemeData lightTheme = ThemeData(
           fontFamily: Fonts.primary,
           fontSize: 12.sp,
           fontWeight: FontWeight.w400,
-          color: Colors.green),
+          color: const Color(0xff666666)),
       //******  Title  ******
       titleLarge: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 20.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       titleMedium: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 18.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       titleSmall: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 16.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       //******  HeadLine  ******
       headlineLarge: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 36.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       headlineMedium: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 28.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       headlineSmall: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 24.sp,
           fontWeight: FontWeight.w600,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       //******  Display  ******
       displayLarge: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 36.sp,
           fontWeight: FontWeight.w700,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       displayMedium: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 28.sp,
           fontWeight: FontWeight.w700,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
       displaySmall: TextStyle(
           fontFamily: Fonts.primary,
           fontSize: 24.sp,
           fontWeight: FontWeight.w700,
-          color: Colors.green),
+          color: const Color(0xff0C1C2C)),
     ));
